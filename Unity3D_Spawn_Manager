@@ -1,0 +1,55 @@
+using UnityEngine;
+using System.Collections;
+
+public class SpawnManager : MonoBehaviour {
+
+	public GameObject VolcanicBomb;
+	public GameObject BlueGem;
+	public Vector3 centrePos;
+	public Vector3 leftPos;
+	public Vector3 rightPos;
+	public Vector3 extLeftPos;
+	public Vector3 extRightPos;
+	private float RandNum;
+	private float GemNum;
+
+	// Use this for initialization
+	void Start () {
+		StartCoroutine (Spawner());
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		RandNum = Random.Range(1,100);
+		GemNum = Random.Range(1,50);
+
+	}	
+
+	IEnumerator Spawner () {
+		while (true) {
+			yield return new WaitForSeconds(1);
+			//spawn volcanic bombs
+			if (RandNum >= 80) {
+				Instantiate (VolcanicBomb, extLeftPos, Quaternion.identity);
+			} else if (RandNum > 60 & RandNum < 80) {
+				Instantiate (VolcanicBomb, leftPos, Quaternion.identity);
+			} else if (RandNum > 40 & RandNum < 60) {
+				Instantiate (VolcanicBomb, centrePos, Quaternion.identity);
+			} else if (RandNum > 20 & RandNum < 40) {
+				Instantiate (VolcanicBomb, rightPos, Quaternion.identity);
+			} else if (RandNum <= 20) {
+				Instantiate (VolcanicBomb, extRightPos, Quaternion.identity);
+			}
+			// spawn Gems
+			if (GemNum >= 40) {
+				Instantiate (BlueGem, centrePos, Quaternion.identity);
+			} else if (GemNum <= 10) {
+				Instantiate (BlueGem, leftPos, Quaternion.identity);
+			}
+
+		}
+
+	}
+
+}
