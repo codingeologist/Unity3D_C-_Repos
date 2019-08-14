@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyShip : MonoBehaviour {
+
+    public static int dodgeCounter = 0;
+
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void OnTriggerEnter2D(Collider2D trig)
+    {
+        Destroy(gameObject);
+        dodgeCounter++;
+
+        if (dodgeCounter == 20)
+        {
+            Debug.Log("20 dodges!");
+        }
+        else if (dodgeCounter == 40)
+        {
+            Debug.Log("40 dodges!");
+        }
+        else if (dodgeCounter == 60)
+        {
+            Debug.Log("60 dodges!");
+        }
+        else if (dodgeCounter == 80)
+        {
+            Debug.Log("80 dodges!");
+        }
+        else if (dodgeCounter == 100)
+        {
+            Debug.Log("100 dodges!");
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        Destroy(gameObject);
+
+    }
+
+}
