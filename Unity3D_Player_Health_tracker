@@ -1,0 +1,63 @@
+using UnityEngine;
+using System.Collections;
+
+public class HealthTracker : MonoBehaviour {
+	public RectTransform healthBar;
+	public RectTransform manabar;
+
+	// Use this for initialization
+	void Start () {
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	//Reduce health bar indicator on collision
+		if (ShipController.hitCounter == 1) {
+			healthBar.sizeDelta = new Vector2(180, 5);
+		} else if (ShipController.hitCounter == 2) {
+			healthBar.sizeDelta = new Vector2 (160, 5);
+		} else if (ShipController.hitCounter == 3) {
+			healthBar.sizeDelta = new Vector2 (140, 5);
+		} else if (ShipController.hitCounter == 4) {
+			healthBar.sizeDelta = new Vector2 (120, 5);
+		} else if (ShipController.hitCounter == 5) {
+			healthBar.sizeDelta = new Vector2 (100, 5);
+		} else if (ShipController.hitCounter == 6) {
+			healthBar.sizeDelta = new Vector2 (80, 5);
+		} else if (ShipController.hitCounter == 7) {
+			healthBar.sizeDelta = new Vector2 (60, 5);
+		} else if (ShipController.hitCounter == 8) {
+			healthBar.sizeDelta = new Vector2 (40, 5);
+		} else if (ShipController.hitCounter == 9) {
+			healthBar.sizeDelta = new Vector2 (20, 5);
+		} else if (ShipController.hitCounter == 10) {
+			healthBar.sizeDelta = new Vector2 (0, 5);
+		}
+
+	//increase Mana bar indicator on collision with Gems/whatever else I decide. For now it collects dodges!
+		if (ShipController.blueCollect == 1) {
+			manabar.sizeDelta = new Vector2(20, 5);
+		} else if (ShipController.blueCollect == 2) {
+			manabar.sizeDelta = new Vector2 (40, 5);
+		} else if (ShipController.blueCollect == 3) {
+			manabar.sizeDelta = new Vector2 (60, 5);
+		} else if (ShipController.blueCollect == 4) {
+			manabar.sizeDelta = new Vector2 (80, 5);
+		} else if (ShipController.blueCollect == 5) {
+			manabar.sizeDelta = new Vector2 (100, 5);
+		} else if (ShipController.blueCollect == 6) {
+			manabar.sizeDelta = new Vector2 (120, 5);
+		} else if (ShipController.blueCollect == 7) {
+			manabar.sizeDelta = new Vector2 (140, 5);
+		} else if (ShipController.blueCollect == 8) {
+			manabar.sizeDelta = new Vector2 (160, 5);
+		} else if (ShipController.blueCollect == 9) {
+			manabar.sizeDelta = new Vector2 (180, 5);
+		} else if (ShipController.blueCollect == 10) {
+			manabar.sizeDelta = new Vector2 (200, 5);
+		}
+
+	}
+	
+}
